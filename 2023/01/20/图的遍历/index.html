@@ -16,21 +16,24 @@
   <meta name="author" content="Jumping">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="总结图的深度优先搜索和广度优先搜索算法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yolo-jbc.github.io/2023/01/17/hello-world/index.html">
+<meta property="og:title" content="图的遍历">
+<meta property="og:url" content="http://yolo-jbc.github.io/2023/01/20/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/index.html">
 <meta property="og:site_name" content="Jumping&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="总结图的深度优先搜索和广度优先搜索算法。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-01-17T04:00:52.537Z">
-<meta property="article:modified_time" content="2023-01-19T07:21:43.486Z">
+<meta property="og:image" content="http://yolo-jbc.github.io/img/Algorithm/graph/search.jpg">
+<meta property="article:published_time" content="2023-01-20T08:08:52.000Z">
+<meta property="article:modified_time" content="2023-02-03T10:37:19.673Z">
 <meta property="article:author" content="Jumping">
+<meta property="article:tag" content="图算法">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://yolo-jbc.github.io/img/Algorithm/graph/search.jpg">
   
   
   
-  <title>Hello World - Jumping&#39;s Blog</title>
+  <title>图的遍历 - Jumping&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello World"></span>
+            <span id="subtitle" data-typed-text="图的遍历"></span>
           
         </div>
 
@@ -209,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-17 12:00" pubdate>
-          2023年1月17日 中午
+        <time datetime="2023-01-20 16:08" pubdate>
+          2023年1月20日 下午
         </time>
       </span>
     
@@ -221,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          367 字
+          1.9k 字
         
       </span>
     
@@ -232,7 +235,7 @@
         
         
         
-          4 分钟
+          16 分钟
         
       </span>
     
@@ -270,26 +273,40 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none">图的遍历</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+                <p>特点与区别<br>
+深度优先搜索和广度优先搜索都是遍历一个图的算法，两种遍历方法的主要特点是</p>
+<ul>
+<li>深度优先：不撞南墙不回头。</li>
+<li>广度优先：由开始向外扩散。</li>
+</ul>
+<p>现在可能听起来很让人疑惑，接下来我们逐个来分析：</p>
+<h2 id="深度优先搜索">深度优先搜索</h2>
+<p>深度优先搜索(Depth First Search):的主要思路是沿着一条路径一直走，直到走不动的时候再回头。什么时候叫走不动的时候呢，当访问到一个图中一个结点时，该结点已经没有任何的<strong>邻接的且未访问</strong>的结点时，此时可形象地称为走不动了，撞了南墙了。<br>
+深度优先搜索的实现往往和一种数据结构——<strong>栈</strong>联系在一起，具体思路如下：</p>
+<ol>
+<li>设定一个遍历的起点，并将其入栈；</li>
+<li>访问并弹出栈顶结点，将栈顶结点的<strong>邻接的且未访问</strong>的结点入栈；</li>
+<li>重复步骤2，直到栈为空；</li>
+</ol>
+<p>C++代码实现如下(图以邻接矩阵存储为例，以结点的序号来表示结点，后文均用邻接矩阵作为代码示例)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> start,vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;graph)</span></span><br><span class="hljs-function"></span>&#123;<br>    stack&lt;<span class="hljs-type">int</span>&gt;search_sta;<br>    vector&lt;<span class="hljs-type">bool</span>&gt;<span class="hljs-built_in">visited</span>(size,<span class="hljs-literal">false</span>);<br>    <span class="hljs-type">int</span> temp_node;<br>    search_sta.<span class="hljs-built_in">push</span>(start);     <span class="hljs-comment">//起点入栈</span><br>    visited.<span class="hljs-built_in">push_back</span>(start);   <span class="hljs-comment">//标为已知</span><br>    <span class="hljs-keyword">while</span>(!search_sta.<span class="hljs-built_in">empty</span>())<br>    &#123;<br>        temp_node = search_sta.<span class="hljs-built_in">top</span>();   <span class="hljs-comment">//获取栈顶元素</span><br>        <span class="hljs-built_in">visit</span>(temp_node);               <span class="hljs-comment">//访问该节点</span><br>        search_sta.<span class="hljs-built_in">pop</span>();               <span class="hljs-comment">//栈顶元素出栈</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; size; i++)<br>        &#123;<br>            <span class="hljs-keyword">if</span>(graph[temp_node][i]&amp;&amp;visited[i]==<span class="hljs-literal">false</span>)<br>            &#123;<br>                <span class="hljs-comment">//将未访问的邻接点入栈并标为已访问</span><br>                search_sta.<span class="hljs-built_in">push</span>(i);<br>                visited[i]=<span class="hljs-literal">true</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>同样的，我们也可以用<strong>递归</strong>的方式来实现dfs，事实上递归也是一种栈，代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp">vector&lt;<span class="hljs-type">bool</span>&gt;visited;<span class="hljs-comment">//提前初始化visited数组</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs_recursion</span><span class="hljs-params">(<span class="hljs-type">int</span> start, vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;graph)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">visit</span>(start);   <span class="hljs-comment">//访问结点</span><br>    visited[start]=<span class="hljs-literal">true</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; size; i++)<br>    &#123;<br>        <span class="hljs-keyword">if</span>(visited[i]==<span class="hljs-literal">false</span>&amp;&amp;graph[start][i])<br>        &#123;<br>            <span class="hljs-built_in">dfs_recursion</span>(i);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="广度优先搜索">广度优先搜索</h2>
+<p>广度优先搜索(Breadth First Search)的主要思路是从起点开始，访问其所有邻接点，再依次访问这每个邻接点的所有邻接点（好像有点绕）。与深度优先搜索所不同的是，广度优先搜索对于每个结点和它的邻接点都尝试去访问。从直观上来看，bfs是一层一层的，第一层访问最近一圈的结点，而后层数随着圈不断向外扩展。<br>
+广度优先搜索的实现往往和另一种数据结构——<strong>队列</strong>有关，具体思路如下：</p>
+<ol>
+<li>设定一个遍历的起点，将起点入队；</li>
+<li>访问队头结点并将其出队，将队头结点的所有<strong>邻接且未访问</strong>结点入队；</li>
+<li>重复步骤2直到队为空；</li>
+</ol>
+<p>C++实现代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bfs</span><span class="hljs-params">(<span class="hljs-type">int</span> i, vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;graph)</span></span><br><span class="hljs-function"></span>&#123;<br>    queue&lt;<span class="hljs-type">int</span>&gt; q;<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">bool</span>&gt; <span class="hljs-title">visited</span><span class="hljs-params">(graph.size(),<span class="hljs-literal">false</span>)</span></span>;<br>    q.<span class="hljs-built_in">push</span>(i);<br>    visited[i] = <span class="hljs-literal">true</span>;<br>    <span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>())<br>    &#123;<br>        <span class="hljs-type">int</span> temp_node = q.<span class="hljs-built_in">front</span>();  <span class="hljs-comment">//获取队首元素</span><br>        <span class="hljs-built_in">visit</span>(temp_node);           <span class="hljs-comment">//访问该节点</span><br>        q.<span class="hljs-built_in">pop</span>();                    <span class="hljs-comment">//弹出队首元素</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; size; j++)<br>        &#123;<br>            <span class="hljs-keyword">if</span> (graph[temp_node][j] == <span class="hljs-number">1</span> &amp;&amp; visited[j] == <span class="hljs-literal">false</span>)<br>            &#123;<br>                visited[j] = <span class="hljs-literal">true</span>;<br>                q.<span class="hljs-built_in">push</span>(j);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -297,6 +314,41 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-chain-item">算法与数据结构</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/" class="category-chain-item">图</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%9B%BE%E7%AE%97%E6%B3%95/">#图算法</a>
+      
+    </div>
   
 </div>
 
@@ -306,8 +358,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>http://yolo-jbc.github.io/2023/01/17/hello-world/</div>
+      <div>图的遍历</div>
+      <div>http://yolo-jbc.github.io/2023/01/20/图的遍历/</div>
     </div>
     <div class="license-meta">
       
@@ -319,7 +371,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年1月17日</div>
+          <div>2023年1月20日</div>
         </div>
       
       
@@ -346,6 +398,29 @@
 
 
 
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/01/30/%E5%9B%9E%E6%BA%AF%E5%92%8C%E6%90%9C%E7%B4%A2/" title="回溯和搜索">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">回溯和搜索</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/01/18/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" title="二分查找">
+                        <span class="hidden-mobile">二分查找</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
               
             </div>
 
