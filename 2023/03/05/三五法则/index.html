@@ -16,24 +16,24 @@
   <meta name="author" content="Jumping">
   <meta name="keywords" content="">
   
-    <meta name="description" content="vector 使用优化">
+    <meta name="description" content="what is 三五法则">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vector优化">
-<meta property="og:url" content="http://yolo-jbc.github.io/2023/03/02/vector%E4%BC%98%E5%8C%96/index.html">
+<meta property="og:title" content="三五法则">
+<meta property="og:url" content="http://yolo-jbc.github.io/2023/03/05/%E4%B8%89%E4%BA%94%E6%B3%95%E5%88%99/index.html">
 <meta property="og:site_name" content="Jumping&#39;s Blog">
-<meta property="og:description" content="vector 使用优化">
+<meta property="og:description" content="what is 三五法则">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yolo-jbc.github.io/img/cpp/vector.jpg">
-<meta property="article:published_time" content="2023-03-02T15:35:24.000Z">
-<meta property="article:modified_time" content="2023-03-03T11:51:31.168Z">
+<meta property="og:image" content="http://yolo-jbc.github.io/img/cpp/%E5%A4%9A%E6%80%81.jpg">
+<meta property="article:published_time" content="2023-03-05T01:54:10.000Z">
+<meta property="article:modified_time" content="2023-03-05T02:06:12.220Z">
 <meta property="article:author" content="Jumping">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://yolo-jbc.github.io/img/cpp/vector.jpg">
+<meta name="twitter:image" content="http://yolo-jbc.github.io/img/cpp/%E5%A4%9A%E6%80%81.jpg">
   
   
   
-  <title>vector优化 - Jumping&#39;s Blog</title>
+  <title>三五法则 - Jumping&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="vector优化"></span>
+            <span id="subtitle" data-typed-text="三五法则"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-02 23:35" pubdate>
-          2023年3月2日 晚上
+        <time datetime="2023-03-05 09:54" pubdate>
+          2023年3月5日 上午
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          781 字
+          490 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          7 分钟
+          5 分钟
         
       </span>
     
@@ -273,13 +273,17 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">vector优化</h1>
+            <h1 style="display: none">三五法则</h1>
             
             
               <div class="markdown-body">
                 
-                <p>先回顾这个程序，想想这是什么结果</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">vertex</span><br>&#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> x, y;<br>    <span class="hljs-built_in">vertex</span>(<span class="hljs-type">int</span> x=<span class="hljs-number">0</span>, <span class="hljs-type">int</span> y=<span class="hljs-number">0</span>) : <span class="hljs-built_in">x</span>(x), <span class="hljs-built_in">y</span>(y) <br>    &#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;created!!!&quot;</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-built_in">vertex</span>(<span class="hljs-type">const</span> vertex&amp; other)<br>        : <span class="hljs-built_in">x</span>(other.x), <span class="hljs-built_in">y</span>(other.y)<br>    &#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;copied!!&quot;</span> &lt;&lt; endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    vector&lt;vertex&gt; nums;<br>    <span class="hljs-comment">//nums.push_back(vertex&#123; 1,2 &#125;);</span><br>    <span class="hljs-comment">//nums.push_back(vertex&#123; 3,4 &#125;);</span><br>    <span class="hljs-comment">//nums.push_back(vertex&#123; 5,6 &#125;);</span><br>    cout &lt;&lt; nums.<span class="hljs-built_in">capacity</span>() &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; nums.<span class="hljs-built_in">size</span>() &lt;&lt; endl;<br>    nums.<span class="hljs-built_in">reserve</span>(<span class="hljs-number">5</span>);<br>    cout &lt;&lt; nums.<span class="hljs-built_in">capacity</span>() &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; nums.<span class="hljs-built_in">size</span>() &lt;&lt; endl;<br>    nums.<span class="hljs-built_in">emplace_back</span>( <span class="hljs-number">1</span>,<span class="hljs-number">2</span> );<br>    nums.<span class="hljs-built_in">emplace_back</span>( <span class="hljs-number">3</span>,<span class="hljs-number">4</span> );<br>    nums.<span class="hljs-built_in">emplace_back</span>( <span class="hljs-number">5</span>,<span class="hljs-number">6</span> );<br>    cin.<span class="hljs-built_in">get</span>();<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+                <p>有三个基本操作可以控制类的拷贝操作：拷贝构造函数、拷贝赋值运算符和析构函数。在C++11新标准之后，一个类还可以定义一个移动构造函数和一个移动赋值运算符。</p>
+<p>C++并不要求我们定义所有这些操作：可以只定义其中一个或两个，而不必定义所有。但是这些操作通常应该被看做是一个整体。通常，只需要其中一个操作而不需要定义所有操作的情况是很少见的。三法则就是指析构函数，拷贝构造，拷贝赋值。</p>
+<p>通常，若一个类需要析构函数，则代表其合成的析构函数不足以释放类所拥有的资源，其中最典型的就是指针成员（析构时需要手动去释放指针指向的内存）。</p>
+<p>所以，若存在自定义（且正确）的析构函数，但使用合成的拷贝构造函数，那么拷贝过去的也只是指针，此时两个对象的指针变量同时指向同一块内存，指向同一块内存的后果很有可能是在两个对象中的析构函数中先后被释放两次。所以需要额外的拷贝控制函数去控制相应资源的拷贝。</p>
+<p>所以这类例子的共同点就是：一个对象拥有额外的资源（指针指向的内存），但另一个对象使用合成的拷贝构造函数也同时拥有这块资源。当一方对象被销毁后，析构函数释放了资源，这时另一个对象便失去了这块资源（但程序员还不知道）。</p>
+
                 
               </div>
             
@@ -324,8 +328,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>vector优化</div>
-      <div>http://yolo-jbc.github.io/2023/03/02/vector优化/</div>
+      <div>三五法则</div>
+      <div>http://yolo-jbc.github.io/2023/03/05/三五法则/</div>
     </div>
     <div class="license-meta">
       
@@ -337,7 +341,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年3月2日</div>
+          <div>2023年3月5日</div>
         </div>
       
       
@@ -369,9 +373,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/05/%E4%B8%89%E4%BA%94%E6%B3%95%E5%88%99/" title="三五法则">
+                      <a href="/2023/03/12/%E6%8E%92%E5%BA%8F%E5%B0%8F%E7%BB%93/" title="排序小结">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">三五法则</span>
+                        <span class="hidden-mobile">排序小结</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -379,8 +383,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/01/17/%E5%8A%9B%E6%89%A3x%E6%95%B0%E4%B9%8B%E5%92%8C%E4%BD%A0%E6%90%9E%E6%98%8E%E7%99%BD%E4%BA%86%E5%90%97/" title="力扣x数之和你搞明白了吗">
-                        <span class="hidden-mobile">力扣x数之和你搞明白了吗</span>
+                      <a href="/2023/03/02/vector%E4%BC%98%E5%8C%96/" title="vector优化">
+                        <span class="hidden-mobile">vector优化</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
