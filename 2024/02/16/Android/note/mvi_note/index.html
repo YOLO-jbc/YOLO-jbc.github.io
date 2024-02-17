@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="Jumping&#39;s Blog">
 <meta property="og:description" content="MVI 架构的规则与总结">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yolo-jbc.github.io/img/Amdroid/note/mvi_note/mvi_layer_diagram.png">
+<meta property="og:image" content="http://yolo-jbc.github.io/img/Android/note/mvi_note/mvi_layer_diagram.png">
 <meta property="og:image" content="http://yolo-jbc.github.io/img/Android/note/mvi_note/mvi_data_flow_diagram.png">
 <meta property="article:published_time" content="2024-02-16T01:55:11.000Z">
-<meta property="article:modified_time" content="2024-02-16T04:01:16.259Z">
+<meta property="article:modified_time" content="2024-02-17T02:59:04.567Z">
 <meta property="article:author" content="Jumping">
 <meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://yolo-jbc.github.io/img/Amdroid/note/mvi_note/mvi_layer_diagram.png">
+<meta name="twitter:image" content="http://yolo-jbc.github.io/img/Android/note/mvi_note/mvi_layer_diagram.png">
   
   
   
@@ -280,7 +280,7 @@
               <div class="markdown-body">
                 
                 <p>Android MVI 架构的层次结构如下所示</p>
-<p><img src="/img/Amdroid/note/mvi_note/mvi_layer_diagram.png" srcset="/img/loading.gif" lazyload alt="MVI 架构层次"></p>
+<p><img src="/img/Android/note/mvi_note/mvi_layer_diagram.png" srcset="/img/loading.gif" lazyload alt="MVI 架构层次"></p>
 <p>这个结构层次的一个基本规则是，外层依赖内层，而内层应该是独立于外层的，不能以来外层。比如说Use Case应该是依赖于Repo的，而不能依赖于ViewModel。整体数据的流向如下所示</p>
 <p><img src="/img/Android/note/mvi_note/mvi_data_flow_diagram.png" srcset="/img/loading.gif" lazyload alt="MVI 架构数据流向"></p>
 <ul>
